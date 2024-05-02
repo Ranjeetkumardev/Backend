@@ -3,8 +3,20 @@ import mongoose from "mongoose";
 import cors from "cors"
 import router from "./routes/userRouter.js";
 import auth from "./middlewares/auth.js";
+import path from "path"
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+console.log(__dirname)
+
 
 const app = express();
+
+app.use(express.static(path.join(__dirname, "/client/build")))
+
+app.get("*", (req, res) => res.sendFile(path.join(__dirname , "/client/build/index.html")))
+
 app.use(cors())
 mongoose
   .connect("mongodb://127.0.0.1:27017/Full-Stack-DB", {})
