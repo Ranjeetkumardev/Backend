@@ -13,7 +13,7 @@ console.log(__dirname)
 
 const app = express();
 
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 4000;
 
 app.use(express.static(path.join(__dirname, "/client/build")))
 
@@ -24,7 +24,7 @@ mongoose
   .connect("mongodb://127.0.0.1:27017/Full-Stack-DB", {})
   .then(() => {
     app.listen(port, () => {
-      console.log("Database connected successfully...");
+        console.log(`Example app listening on port ${port}`);
     });
   })
   .catch((error) => {
