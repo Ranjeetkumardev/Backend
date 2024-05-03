@@ -21,7 +21,7 @@ app.use(cors())
 const port = process.env.PORT || 4000
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/Full-Stack-DB", {})
+  .connect("mongodb://localhost:27017/Full-Stack-DB", {})
   .then(() => {
     app.listen(port, () => {
       console.log("Database connected successfully...");
