@@ -19,12 +19,14 @@ app.use(express.static(path.join(__dirname, "/client/build")))
 
 app.get("*", (req, res) => res.sendFile(path.join(__dirname , "/client/build/index.html")))
 
+const MONGO_URI = process.env.MONODB_URL; 
+
 app.use(cors())
 mongoose
-  .connect("mongodb://127.0.0.1:27017/Full-Stack-DB", {})
+  .connect(`${MONGO_URI}/Full-Stack-DB`, {})
   .then(() => {
     app.listen(port, () => {
-        console.log(`database connected and listening on port ${port}`);
+      console.log(`database connected and listening on port ${port}`);
     });
   })
   .catch((error) => {
