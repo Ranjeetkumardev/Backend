@@ -13,6 +13,8 @@ console.log(__dirname)
 
 const app = express();
 
+const port = process.env.PORT || 4000
+
 app.use(express.static(path.join(__dirname, "/client/build")))
 
 app.get("*", (req, res) => res.sendFile(path.join(__dirname , "/client/build/index.html")))
@@ -21,7 +23,7 @@ app.use(cors())
 mongoose
   .connect("mongodb://127.0.0.1:27017/Full-Stack-DB", {})
   .then(() => {
-    app.listen(4000, () => {
+    app.listen(port, () => {
       console.log("Database connected successfully...");
     });
   })
