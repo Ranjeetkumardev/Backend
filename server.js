@@ -1,10 +1,11 @@
-import express from "express";
+import express from "express"
 import mongoose from "mongoose";
 import cors from "cors"
 import router from "./routes/userRouter.js";
 import auth from "./middlewares/auth.js";
 import path from "path"
-import { fileURLToPath } from "url";
+import "dotenv/config";
+import { fileURLToPath } from "url"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -19,9 +20,10 @@ app.get("*", (req, res) => res.sendFile(path.join(__dirname , "/client/build/ind
 app.use(cors())
 
 const port = process.env.PORT || 4000
+const MONGO_URI = process.env.MONODB_URL;
 
 mongoose
-  .connect("mongodb://localhost:27017/Full-Stack-DB", {})
+  .connect(`${MONGO_URI}`, {})
   .then(() => {
     app.listen(port, () => {
       console.log("Database connected successfully...");

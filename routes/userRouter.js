@@ -4,10 +4,11 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import FeadbackModel from "../models/FeadbackModel.js";
 //import auth from "../middlewares/auth.js";
+import "dotenv/config";
 
 const router = express.Router();
 router.use(express.json());
-
+const secret_key = process.env.SECRET_KEY;
 // Register
 router.post("/user", async (req, res) => {
   try {
@@ -82,7 +83,7 @@ router.post("/logout", (req, res) => {
 
 // Function to generate JWT token
 const generateToken = (userId) => {
-  return jwt.sign({ userId }, "thisisnodecourse", {
+  return jwt.sign({ userId }, `${secret_key}`, {
     expiresIn: "1h",
   });
 };
