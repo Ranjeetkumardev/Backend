@@ -24,7 +24,7 @@ mongoose
   .connect("mongodb://127.0.0.1:27017/Full-Stack-DB", {})
   .then(() => {
     app.listen(port, () => {
-        console.log(`Example app listening on port ${port}`);
+        console.log(`database connected and listening on port ${port}`);
     });
   })
   .catch((error) => {
