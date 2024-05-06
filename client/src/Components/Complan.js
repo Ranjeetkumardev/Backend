@@ -25,8 +25,8 @@ const Complan = () => {
           email: "",
           query: "",
         });
+        alert("Thanks for the Feedback 🥰 ");
         toast.success("Thanks for the Feedback 🥰 ");
-       // alert("Thanks for the Feedback 🥰 ");
         window.location.reload();
       } else {
         console.error("Failed to submit data.");

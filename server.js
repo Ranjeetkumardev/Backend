@@ -27,7 +27,7 @@ mongoose
   .connect(`${MONGO_URI}`, {})
   .then(() => {
     app.listen(port, () => {
-      console.log(`"Database connected successfully and running at" ${port}`);
+      console.log(`"Database connected successfully.. and running at" ${port}`);
     });
   })
   .catch((error) => {
