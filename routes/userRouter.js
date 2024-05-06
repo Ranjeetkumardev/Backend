@@ -59,6 +59,7 @@ router.post("/login", async (req, res) => {
 router.post("/feedback", async (req, res) => {
   try {
     const feadData = req.body;
+    console.log(feadData);
     if (!feadData || Object.keys(feadData).length === 0) {
       return res
         .status(400)

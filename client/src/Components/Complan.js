@@ -27,7 +27,7 @@ const Complan = () => {
         });
         toast.success("Thanks for the Feedback 🥰 ");
        // alert("Thanks for the Feedback 🥰 ");
-        //window.location.reload();
+        window.location.reload();
       } else {
         console.error("Failed to submit data.");
       }
